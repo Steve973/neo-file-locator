@@ -1,0 +1,50 @@
+spring:
+  application:
+    name: file-locator
+  neo4j:
+    uri: bolt://neo4j:7687
+
+file-locator:
+  skip-paths: >-
+    /afs,
+    /dev,
+    /media,
+    /mnt,
+    /net,
+    /sfs,
+    /tmp,
+    /udev,
+    /var/cache,
+    /var/lib/pacman/local,
+    /var/lock,
+    /var/run,
+    /var/spool,
+    /var/tmp,
+    /boot,
+    /proc,
+    /run
+
+server:
+  ssl:
+    enabled: false
+  error:
+    include-binding-errors: always
+    include-exception: true
+    include-message: always
+    include-stacktrace: always
+  servlet:
+    context-path: "/"
+  port: 8080
+
+springdoc:
+  show-actuator: true
+
+management:
+  endpoint:
+    health:
+      enabled: true
+      show-details: always
+
+logging:
+  level:
+    root: info
